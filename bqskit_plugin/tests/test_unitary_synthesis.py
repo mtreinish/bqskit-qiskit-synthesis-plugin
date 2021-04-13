@@ -56,7 +56,8 @@ class TestUnitarySynthesis(QiskitTestCase):
         qc = QuantumCircuit(5)
         qc.unitary(unitary, [0, 1, 2, 3, 4])
         tqc = transpile(qc, basis_gates=['cx', 'rz', 'sx', 'x', 'id'],
-                        coupling_map=cmap)
+                        coupling_map=cmap,
+                        unitary_synthesis_method='bqskit')
         print(Operator(tqc))
         print(unitary)
         self.assertTrue(np.isclose(unitary, Operator(tqc)).all())
