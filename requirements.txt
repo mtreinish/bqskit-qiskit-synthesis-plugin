@@ -1,0 +1,2 @@
+qiskit-terra
+bqskit>=0.1.0
